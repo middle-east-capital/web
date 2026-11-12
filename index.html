@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiddleEast Capital Advisors | Corporate Finance & Investment Advisory</title>
+<meta name="description" content="MiddleEast Capital Advisors provides financing arrangement, restructuring, M&A, real estate and alternative investment advisory across Türkiye, the GCC and the wider Middle East.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF9F5;
+    --sand:#F3EEE5;
+    --stone:#E7E0D3;
+    --navy:#14284B;
+    --ink:#233044;
+    --muted:#5E6878;
+    --gold:#B08D57;
+    --gold-soft:#D9C49E;
+    --teal:#2F6F73;
+    --white:#ffffff;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(20,40,75,.07);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--ivory);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;color:var(--navy);font-weight:600;line-height:1.15}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+  section{padding:110px 0}
+  .section-head{max-width:680px;margin-bottom:56px}
+  .section-head h2{font-size:clamp(2.1rem,3.6vw,3rem);margin:14px 0 16px}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .center .eyebrow{justify-content:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:500;font-size:.95rem;transition:all .25s ease;cursor:pointer;border:1px solid transparent}
+  .btn-primary{background:var(--navy);color:var(--white)}
+  .btn-primary:hover{background:var(--teal);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--navy);color:var(--navy)}
+  .btn-ghost:hover{background:var(--navy);color:var(--white)}
+  .arrow{transition:transform .25s}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* NAV */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;transition:all .3s ease}
+  header.scrolled{background:rgba(251,249,245,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--stone)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo-mark{width:42px;height:42px}
+  .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--navy);line-height:1.05}
+  .logo-text small{display:block;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.26em;color:var(--gold);font-weight:600;text-transform:uppercase;margin-top:3px}
+  .nav-links{display:flex;gap:34px;list-style:none;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink);position:relative;padding:6px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .25s}
+  .nav-links a:hover::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .lang{font-size:.8rem;color:var(--muted);letter-spacing:.08em}
+  .lang b{color:var(--navy)}
+  .nav .btn{padding:10px 22px;font-size:.88rem}
+  .burger{display:none;background:none;border:none;cursor:pointer;width:30px;height:22px;position:relative}
+  .burger span{position:absolute;left:0;width:100%;height:2px;background:var(--navy);transition:.3s}
+  .burger span:nth-child(1){top:0}.burger span:nth-child(2){top:10px}.burger span:nth-child(3){top:20px}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden;background:linear-gradient(180deg,#FBF9F5 0%,#F3EEE5 100%)}
+  .hero-slides{position:absolute;inset:0;z-index:0}
+  .hero-slides .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 8s ease}
+  .hero-slides .slide.active{opacity:1;transform:scale(1)}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:
+    linear-gradient(90deg,rgba(251,249,245,.97) 0%,rgba(251,249,245,.9) 38%,rgba(251,249,245,.45) 68%,rgba(251,249,245,.15) 100%),
+    linear-gradient(0deg,rgba(243,238,229,.85) 0%,rgba(243,238,229,0) 30%)}
+  .hero .hero-grid{z-index:2}
+  .hero-card{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(8px)}
+  .hero-caption{position:absolute;z-index:2;right:28px;bottom:30px;display:flex;align-items:center;gap:14px;font-size:.78rem;color:var(--ink);background:rgba(255,255,255,.82);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px;border:1px solid var(--stone)}
+  .hero-caption a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--stone)}
+  .hero-dots{display:flex;gap:6px}
+  .hero-dots button{width:8px;height:8px;border-radius:50%;border:none;background:var(--stone);cursor:pointer;padding:0;transition:.3s}
+  .hero-dots button.on{background:var(--gold);width:22px;border-radius:4px}
+  .scroll-cue{z-index:2}
+  @media (max-width:1024px){.hero-overlay{background:linear-gradient(180deg,rgba(251,249,245,.92) 0%,rgba(251,249,245,.8) 60%,rgba(251,249,245,.55) 100%)}.hero-caption{right:50%;transform:translateX(50%);bottom:18px}.scroll-cue{display:none!important}}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,5.6vw,4.7rem);margin:22px 0 26px;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lead{font-size:1.15rem;color:var(--muted);max-width:560px;margin-bottom:38px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:var(--white);border-radius:22px;padding:38px;box-shadow:var(--shadow);border:1px solid var(--stone);position:relative}
+  .hero-card::before{content:"";position:absolute;top:-1px;left:38px;right:38px;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:0 0 3px 3px}
+  .hero-card h3{font-size:1.5rem;margin-bottom:6px}
+  .hero-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+  .hero-card ul{list-style:none}
+  .hero-card li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--sand);font-size:.95rem}
+  .hero-card li:last-child{border:none}
+  .hero-card li span:last-child{color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.04em}
+  .scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scroll-cue::after{content:"";width:1px;height:40px;background:linear-gradient(var(--gold),transparent)}
+
+  /* STATS */
+  .stats{padding:0;margin-top:-1px;background:var(--navy);color:var(--white)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:54px 30px;border-right:1px solid rgba(255,255,255,.1)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-family:'Cormorant Garamond',serif;font-size:3.1rem;font-weight:600;color:var(--gold-soft);line-height:1}
+  .stat .label{margin-top:12px;font-size:.9rem;color:rgba(255,255,255,.75)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-visual{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#E9E1D2,#F7F3EC)}
+  .about-visual svg{position:absolute;inset:0;width:100%;height:100%}
+  .about-badge{position:absolute;left:28px;bottom:28px;background:var(--white);padding:22px 26px;border-radius:14px;box-shadow:var(--shadow);max-width:250px}
+  .about-badge strong{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--navy);display:block;line-height:1}
+  .about-badge span{font-size:.85rem;color:var(--muted)}
+  .about-text p{color:var(--muted);margin-bottom:18px}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+  .pillar{padding:22px;border:1px solid var(--stone);border-radius:var(--radius);background:var(--white)}
+  .pillar h4{font-size:1.3rem;margin-bottom:6px}
+  .pillar p{font-size:.9rem;margin:0}
+
+  /* SERVICES */
+  .services{background:var(--white)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc{padding:38px 32px;border:1px solid var(--stone);border-radius:18px;background:var(--ivory);transition:all .3s ease;position:relative;overflow:hidden}
+  .svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--gold-soft);background:var(--white)}
+  .svc-icon{width:54px;height:54px;border-radius:14px;background:var(--sand);display:grid;place-items:center;margin-bottom:24px;color:var(--teal)}
+  .svc-icon svg{width:26px;height:26px}
+  .svc .idx{position:absolute;top:28px;right:30px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold-soft)}
+  .svc h3{font-size:1.55rem;margin-bottom:12px}
+  .svc p{color:var(--muted);font-size:.94rem}
+
+  /* APPROACH */
+  .approach{background:var(--sand)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s}
+  .step{position:relative;padding-top:34px}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);display:block;margin-bottom:10px}
+  .step::after{content:"";position:absolute;top:0;left:0;right:-28px;height:1px;background:var(--gold-soft)}
+  .step:last-child::after{right:0}
+  .step h4{font-size:1.4rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.93rem}
+
+  /* TRACK RECORD */
+  .tr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+  .tr-head .section-head{margin-bottom:0}
+  .filters{display:flex;gap:8px;flex-wrap:wrap}
+  .filter{padding:9px 18px;border-radius:999px;border:1px solid var(--stone);background:var(--white);font-size:.85rem;cursor:pointer;color:var(--ink);font-family:inherit;transition:.2s}
+  .filter.active,.filter:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+  .deals{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .deal{background:var(--white);border:1px solid var(--stone);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;min-height:230px;transition:.3s}
+  .deal:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .deal .type{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600}
+  .deal .size{font-family:'Cormorant Garamond',serif;font-size:2.3rem;color:var(--navy);font-weight:600;margin:14px 0 6px}
+  .deal .sector{color:var(--muted);font-size:.92rem;flex:1}
+  .deal .meta{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);border-top:1px solid var(--sand);padding-top:14px;margin-top:18px}
+  .deal .meta b{color:var(--gold);font-weight:600}
+  .deal.hide{display:none}
+
+  /* REGIONS */
+  .regions{background:var(--white)}
+  .region-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);border-radius:18px;overflow:hidden}
+  .region{background:var(--white);padding:34px 26px}
+  .region h4{font-size:1.35rem;margin-bottom:6px}
+  .region p{color:var(--muted);font-size:.88rem}
+
+  /* INSIGHTS */
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .news{background:var(--white);border:1px solid var(--stone);border-radius:18px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+  .news:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .news-top{height:150px;position:relative}
+  .news-top.a{background:linear-gradient(135deg,#DCE7E6,#F3EEE5)}
+  .news-top.b{background:linear-gradient(135deg,#EDE3D0,#F7F3EC)}
+  .news-top.c{background:linear-gradient(135deg,#DDE2EC,#F3EEE5)}
+  .news-top span{position:absolute;left:24px;bottom:18px;background:var(--white);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;color:var(--teal);font-weight:600}
+  .news-body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
+  .news-body time{font-size:.8rem;color:var(--muted)}
+  .news-body h3{font-size:1.45rem;margin:10px 0 12px}
+  .news-body p{color:var(--muted);font-size:.92rem;flex:1}
+  .news-body a{margin-top:18px;font-size:.88rem;font-weight:600;color:var(--navy);display:inline-flex;gap:8px}
+
+  /* TEAM */
+  .team{background:var(--sand)}
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .member{background:var(--white);border-radius:18px;padding:30px 24px;text-align:center;border:1px solid var(--stone)}
+  .avatar{width:96px;height:96px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--navy);background:linear-gradient(135deg,var(--gold-soft),var(--sand));font-weight:600}
+  .member h4{font-size:1.35rem}
+  .member .role{font-size:.85rem;color:var(--gold);font-weight:500;margin:4px 0 12px}
+  .member p{font-size:.86rem;color:var(--muted)}
+
+  /* CTA + CONTACT */
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}
+  .contact-info h2{font-size:clamp(2.1rem,3.6vw,3rem);margin:14px 0 18px}
+  .contact-info > p{color:var(--muted);margin-bottom:34px}
+  .ci{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--stone)}
+  .ci svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:3px}
+  .ci small{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .ci a,.ci span{font-weight:500;color:var(--navy)}
+  form{background:var(--white);border:1px solid var(--stone);border-radius:22px;padding:42px;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{margin-bottom:18px}
+  label{display:block;font-size:.8rem;font-weight:500;color:var(--ink);margin-bottom:8px}
+  input,select,textarea{width:100%;padding:13px 16px;border:1px solid var(--stone);border-radius:10px;font-family:inherit;font-size:.95rem;background:var(--ivory);color:var(--ink);transition:.2s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:var(--white)}
+  textarea{min-height:130px;resize:vertical}
+  form .btn{width:100%;justify-content:center;margin-top:6px}
+  .form-note{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.72);padding:80px 0 30px;font-size:.9rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.12)}
+  footer .logo-text{color:var(--white)}
+  footer h5{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;font-weight:600}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px}
+  footer a:hover{color:var(--white)}
+  .foot-about{margin-top:18px;max-width:320px}
+  .social{display:flex;gap:12px;margin-top:22px}
+  .social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;transition:.2s}
+  .social a:hover{background:var(--gold);border-color:var(--gold)}
+  .social svg{width:16px;height:16px}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:26px;font-size:.8rem;flex-wrap:wrap;gap:12px}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media (max-width:1024px){
+    .nav-links,.nav-right .btn,.lang{display:none}
+    .burger{display:block}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:84px;left:0;right:0;background:var(--ivory);padding:24px 28px;gap:18px;box-shadow:0 10px 20px rgba(0,0,0,.05)}
+    .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+    .svc-grid,.news-grid{grid-template-columns:1fr 1fr}
+    .deals,.team-grid,.steps{grid-template-columns:1fr 1fr}
+    .region-grid{grid-template-columns:1fr 1fr}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .stat:nth-child(2){border-right:none}
+    .stat{border-bottom:1px solid rgba(255,255,255,.1)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .step::after{right:0}
+  }
+  @media (max-width:640px){
+    section{padding:80px 0}
+    .svc-grid,.news-grid,.deals,.team-grid,.steps,.pillars,.row,.region-grid,.foot-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:none}
+    form{padding:28px}
+    .hero-card{padding:28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="MiddleEast Capital Advisors home">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="3" y="3" width="42" height="42" stroke="#000" stroke-width="5"/><rect x="12" y="12" width="24" height="24" stroke="#000" stroke-width="4.5"/><rect x="19.5" y="19.5" width="9" height="9" fill="#000"/></svg>
+      <span class="logo-text">MiddleEast Capital<small>Advisors</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Firm</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#track-record">Track Record</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="lang"><b>EN</b> · TR · AR</span>
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- Hero photos: Istanbul (Wikimedia Commons, see credits in caption).
+       For best reliability, download them into an /images folder in your repo
+       and change the URLs in the HERO_IMAGES list in the script at the bottom. -->
+  <div class="hero-slides" id="heroSlides"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Corporate Finance &amp; Investment Advisory</span>
+      <h1>Experience. Insight.<br><em>Lasting value.</em></h1>
+      <p class="lead">We design tailored financing, restructuring and transaction solutions that help companies across Türkiye, the GCC and the wider Middle East grow with confidence, and create value for every stakeholder.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Schedule a Consultation <span class="arrow">→</span></a>
+        <a href="#services" class="btn btn-ghost">Explore Our Services</a>
+      </div>
+    </div>
+    <aside class="hero-card reveal">
+      <h3>Our Practice Areas</h3>
+      <p class="sub">Independent advice across the capital structure</p>
+      <ul>
+        <li><span>Financing Arrangement</span><span>Debt &amp; Equity</span></li>
+        <li><span>Restructuring</span><span>Financial &amp; Operational</span></li>
+        <li><span>M&amp;A / IPO Advisory</span><span>Buy &amp; Sell Side</span></li>
+        <li><span>Real Estate Advisory</span><span>Commercial</span></li>
+        <li><span>Family Business</span><span>Sustainability</span></li>
+        <li><span>Alternative Investments</span><span>Platform</span></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="hero-caption">
+    <span id="heroPlace">Galata Bridge &amp; Tower</span>
+    <a id="heroCredit" href="#" target="_blank" rel="noopener">Photo credit</a>
+    <div class="hero-dots" id="heroDots"></div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ============ STATS ============
+     NOTE: Replace the figures below with your firm's actual numbers. -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num" data-count="15" data-suffix="+">15+</div><div class="label">Years of combined advisory experience</div></div>
+    <div class="stat"><div class="num" data-count="4.5" data-prefix="$" data-suffix="B" data-dec="1">$4.5B</div><div class="label">Transactions advised in the last 36 months</div></div>
+    <div class="stat"><div class="num" data-count="1.2" data-prefix="$" data-suffix="B" data-dec="1">$1.2B</div><div class="label">Credit portfolio under active monitoring</div></div>
+    <div class="stat"><div class="num" data-count="8">8</div><div class="label">Countries covered across the region</div></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="#B08D57" stroke-width="1" opacity=".55">
+          <circle cx="200" cy="230" r="150"/><circle cx="200" cy="230" r="110"/><circle cx="200" cy="230" r="70"/>
+          <rect x="120" y="150" width="160" height="160"/><rect x="120" y="150" width="160" height="160" transform="rotate(45 200 230)"/>
+        </g>
+        <g fill="#14284B" opacity=".9">
+          <rect x="70" y="360" width="34" height="140"/><rect x="112" y="330" width="44" height="170"/>
+          <rect x="164" y="290" width="30" height="210"/><rect x="200" y="250" width="22" height="250"/>
+          <rect x="228" y="310" width="40" height="190"/><rect x="276" y="345" width="30" height="155"/>
+          <rect x="312" y="375" width="40" height="125"/>
+        </g>
+        <path d="M211 250 L211 205" stroke="#14284B" stroke-width="3"/>
+      </svg>
+      <div class="about-badge"><strong>Since 2010</strong><span>Trusted by lenders, founders and family-owned groups</span></div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">Who We Are</span>
+      <div class="section-head" style="margin-bottom:24px">
+        <h2>A regional advisory partner built on trust and execution.</h2>
+      </div>
+      <p>MiddleEast Capital Advisors is an independent corporate finance firm connecting businesses in Türkiye and the Middle East with the capital, structure and strategic partners they need to grow.</p>
+      <p>We provide company-specific solutions that strengthen balance sheets, protect value in difficult times and open doors to international investors, while supporting employment and the development of the economies we work in.</p>
+      <div class="pillars">
+        <div class="pillar"><h4>Vision</h4><p>To be the most trusted bridge between regional businesses and global capital.</p></div>
+        <div class="pillar"><h4>Mission</h4><p>To deliver independent, practical advice that creates measurable value for all stakeholders.</p></div>
+        <div class="pillar"><h4>Integrity</h4><p>Ethical, transparent and fully aligned with our clients' long-term interests.</p></div>
+        <div class="pillar"><h4>Expertise</h4><p>Solution-oriented, creative and competent teams with deep local knowledge.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Advisory across the full capital lifecycle</h2>
+      <p>From raising growth capital to navigating restructurings and cross-border transactions, we stand beside our clients at every decisive moment.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <span class="idx">01</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
+        <h3>Financing Arrangement</h3>
+        <p>Structuring and arranging project, acquisition and working-capital finance through local banks, GCC lenders and international institutions, including syndicated and refinancing solutions.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="idx">02</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <h3>Financial &amp; Operational Restructuring</h3>
+        <p>Independent business reviews, liquidity planning and creditor negotiations that stabilise companies under pressure and restore sustainable capital structures.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="idx">03</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg></div>
+        <h3>M&amp;A / IPO Advisory</h3>
+        <p>Buy-side and sell-side mandates, minority stake sales, valuations and IPO readiness, with access to strategic and financial investors across the Gulf and Europe.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="idx">04</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="10" height="18"/><path d="M14 9h6v12h-6M7 7h4M7 11h4M7 15h4"/></svg></div>
+        <h3>Commercial Real Estate Advisory</h3>
+        <p>Feasibility studies, investment structuring and capital raising for commercial, hospitality and mixed-use developments, including real-estate fund solutions.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="idx">05</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Family Business Sustainability</h3>
+        <p>Governance, succession planning and shareholder agreements that help family-owned groups preserve wealth and stay competitive across generations.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="idx">06</span>
+        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Alternative Investment Platform</h3>
+        <p>Curated co-investment, private credit and real-asset opportunities for institutional and family-office investors seeking exposure to the region.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section class="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2>A disciplined, partner-led approach</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h4>Understand</h4><p>We start with a candid assessment of the business, its stakeholders and its strategic objectives.</p></div>
+      <div class="step reveal"><h4>Analyse</h4><p>Independent financial modelling, feasibility and due diligence form the foundation for every recommendation.</p></div>
+      <div class="step reveal"><h4>Structure</h4><p>We design the right solution and bring the right counterparties to the table: lenders, investors or buyers.</p></div>
+      <div class="step reveal"><h4>Execute &amp; Monitor</h4><p>We lead negotiations to closing, then remain engaged through ongoing monitoring and reporting.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACK RECORD ============
+     NOTE: Replace these sample mandates with your firm's real transactions. -->
+<section id="track-record">
+  <div class="wrap">
+    <div class="tr-head">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Experience</span>
+        <h2>Selected mandates</h2>
+        <p>A representative sample of transactions and engagements led by our team.</p>
+      </div>
+      <div class="filters reveal">
+        <button class="filter active" data-f="all">All</button>
+        <button class="filter" data-f="fin">Financing</button>
+        <button class="filter" data-f="res">Restructuring</button>
+        <button class="filter" data-f="ma">M&amp;A</button>
+        <button class="filter" data-f="fs">Feasibility</button>
+      </div>
+    </div>
+    <div class="deals">
+      <div class="deal reveal" data-c="res"><span class="type">Restructuring</span><div class="size">$2.4B</div><div class="sector">Construction &amp; contracting group</div><div class="meta"><span>Türkiye</span><b>2024</b></div></div>
+      <div class="deal reveal" data-c="fin"><span class="type">Financing</span><div class="size">€300M</div><div class="sector">Refinancing syndication for a diversified holding</div><div class="meta"><span>Türkiye / EU</span><b>2025</b></div></div>
+      <div class="deal reveal" data-c="ma"><span class="type">M&amp;A · Sell-side</span><div class="size">75%</div><div class="sector">Stake sale of an industrial manufacturer to a European strategic</div><div class="meta"><span>Cross-border</span><b>2025</b></div></div>
+      <div class="deal reveal" data-c="fin"><span class="type">Monitoring</span><div class="size">$420M</div><div class="sector">Lender monitoring &amp; reporting, fleet leasing</div><div class="meta"><span>Türkiye</span><b>Ongoing</b></div></div>
+      <div class="deal reveal" data-c="res"><span class="type">Restructuring</span><div class="size">$450M</div><div class="sector">Iron &amp; steel producer with 40-year history</div><div class="meta"><span>Türkiye</span><b>2024</b></div></div>
+      <div class="deal reveal" data-c="fs"><span class="type">Feasibility</span><div class="size">$120M</div><div class="sector">Hospitality &amp; mixed-use development</div><div class="meta"><span>KSA</span><b>2025</b></div></div>
+      <div class="deal reveal" data-c="fs"><span class="type">Feasibility</span><div class="size">€25M</div><div class="sector">Independent lender report, textiles</div><div class="meta"><span>Türkiye</span><b>2025</b></div></div>
+      <div class="deal reveal" data-c="ma"><span class="type">M&amp;A · Buy-side</span><div class="size">$85M</div><div class="sector">Acquisition of a logistics platform for a Gulf family office</div><div class="meta"><span>UAE / Türkiye</span><b>2024</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGIONS ============ -->
+<section class="regions">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Regional Reach</span>
+      <h2>Local insight, cross-border capability</h2>
+    </div>
+    <div class="region-grid reveal">
+      <div class="region"><h4>Türkiye</h4><p>Istanbul headquarters with deep corporate and banking relationships.</p></div>
+      <div class="region"><h4>Saudi Arabia</h4><p>Partnerships with family offices and Vision 2030 investors.</p></div>
+      <div class="region"><h4>UAE</h4><p>Access to Dubai and Abu Dhabi capital markets and sovereign funds.</p></div>
+      <div class="region"><h4>Qatar &amp; Kuwait</h4><p>Relationships with institutional and strategic investors.</p></div>
+      <div class="region"><h4>Europe</h4><p>Lender and buyer networks for cross-border transactions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section id="insights">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Perspective</span>
+      <h2>News &amp; insights</h2>
+    </div>
+    <div class="news-grid">
+      <article class="news reveal">
+        <div class="news-top a"><span>Transaction</span></div>
+        <div class="news-body"><time>October 2025</time><h3>Advising on a €300M refinancing syndication</h3><p>Our team acted as financial advisor on a multi-bank refinancing, extending maturities and strengthening the client's liquidity profile.</p><a href="#contact">Read more →</a></div>
+      </article>
+      <article class="news reveal">
+        <div class="news-top b"><span>Event</span></div>
+        <div class="news-body"><time>September 2025</time><h3>Restructuring summit: lessons for the region</h3><p>Our partners joined a panel on creditor coordination and turnaround practices in high-inflation environments.</p><a href="#contact">Read more →</a></div>
+      </article>
+      <article class="news reveal">
+        <div class="news-top c"><span>Insight</span></div>
+        <div class="news-body"><time>July 2025</time><h3>Gulf capital and Turkish assets: a growing corridor</h3><p>Why GCC investors are increasingly looking at Turkish real estate, industry and infrastructure, and how to structure those deals.</p><a href="#contact">Read more →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============
+     NOTE: Replace names, roles and bios with your real team. -->
+<section id="team" class="team">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2>Senior professionals, hands-on on every mandate</h2>
+      <p>Our partners bring decades of experience from investment banking, corporate lending, Big Four advisory and asset management.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal"><div class="avatar">AK</div><h4>Partner Name</h4><div class="role">Managing Partner</div><p>20+ years in corporate banking and structured finance across Türkiye and the GCC.</p></div>
+      <div class="member reveal"><div class="avatar">SY</div><h4>Partner Name</h4><div class="role">Partner, Restructuring</div><p>Led complex creditor negotiations for leading industrial and construction groups.</p></div>
+      <div class="member reveal"><div class="avatar">MH</div><h4>Partner Name</h4><div class="role">Partner, M&amp;A</div><p>Cross-border transaction experience with strategic and financial investors.</p></div>
+      <div class="member reveal"><div class="avatar">LD</div><h4>Partner Name</h4><div class="role">Director, Real Estate</div><p>Feasibility, valuation and fund structuring for commercial real estate projects.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Let's discuss your next step.</h2>
+      <p>Whether you're raising capital, considering a transaction or navigating a challenging period, we'd be glad to meet you.</p>
+      <div class="ci">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div><small>Office</small><span>Levent, Istanbul, Türkiye</span></div>
+      </div>
+      <div class="ci">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a1 1 0 0 1-1 1A17 17 0 0 1 3 6a1 1 0 0 1 1-1z"/></svg>
+        <div><small>Phone</small><a href="tel:+902120000000">+90 (212) 000 00 00</a></div>
+      </div>
+      <div class="ci">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        <div><small>Email</small><a href="mailto:info@mecapitaladvisors.com">info@mecapitaladvisors.com</a></div>
+      </div>
+    </div>
+
+    <!-- The form opens the visitor's email app (works on GitHub Pages with no backend).
+         To receive submissions directly, replace with a Formspree action, e.g.
+         <form action="https://formspree.io/f/YOUR_ID" method="POST"> -->
+    <form id="contactForm" class="reveal">
+      <div class="row">
+        <div class="field"><label for="name">Full name</label><input id="name" required></div>
+        <div class="field"><label for="company">Company</label><input id="company"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="email">Email</label><input id="email" type="email" required></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" type="tel"></div>
+      </div>
+      <div class="field">
+        <label for="topic">Area of interest</label>
+        <select id="topic">
+          <option>Financing Arrangement</option>
+          <option>Financial &amp; Operational Restructuring</option>
+          <option>M&amp;A / IPO Advisory</option>
+          <option>Commercial Real Estate Advisory</option>
+          <option>Family Business Sustainability</option>
+          <option>Alternative Investment Platform</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">Message</label><textarea id="msg" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send Message <span class="arrow">→</span></button>
+      <p class="form-note">All enquiries are treated in strict confidence.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo">
+          <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="3" y="3" width="42" height="42" stroke="#fff" stroke-width="5"/><rect x="12" y="12" width="24" height="24" stroke="#fff" stroke-width="4.5"/><rect x="19.5" y="19.5" width="9" height="9" fill="#fff"/></svg>
+          <span class="logo-text">MiddleEast Capital<small>Advisors</small></span>
+        </a>
+        <p class="foot-about">Independent corporate finance and investment advisory for Türkiye, the GCC and the wider Middle East.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4 0-3.2-1.95-3.2S12.8 13.5 12.8 15.1V21H9z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.3l-7.2 8.2L22 21h-6.6l-5.2-6.8L4.3 21H1l7.7-8.8L.7 3h6.8l4.7 6.2zm-1.2 16h1.8L6.8 4.9H4.9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Firm</h5>
+        <ul><li><a href="#about">About Us</a></li><li><a href="#about">Vision &amp; Mission</a></li><li><a href="#team">Team</a></li><li><a href="#track-record">Track Record</a></li></ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul><li><a href="#services">Financing</a></li><li><a href="#services">Restructuring</a></li><li><a href="#services">M&amp;A / IPO</a></li><li><a href="#services">Real Estate</a></li></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul><li>Levent, Istanbul</li><li><a href="tel:+902120000000">+90 (212) 000 00 00</a></li><li><a href="mailto:info@mecapitaladvisors.com">info@mecapitaladvisors.com</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> MiddleEast Capital Advisors. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Legal Notice</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  // Mobile menu
+  const burger = document.getElementById('burger'), links = document.getElementById('navLinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Count-up stats
+  const counters = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = parseFloat(el.dataset.count), dec = +el.dataset.dec || 0;
+    const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    let t0 = null;
+    const step = t => { t0 ??= t; const p = Math.min((t - t0) / 1600, 1), v = end * (1 - Math.pow(1 - p, 3));
+      el.textContent = pre + v.toFixed(dec) + suf; if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step); counters.unobserve(el);
+  }), { threshold: .5 });
+  document.querySelectorAll('[data-count]').forEach(el => counters.observe(el));
+
+  // Track record filters
+  document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.deal').forEach(d => d.classList.toggle('hide', f !== 'all' && d.dataset.c !== f));
+  }));
+
+  // Contact form -> mailto (static hosting friendly)
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value;
+    const body = `Name: ${v('name')}\nCompany: ${v('company')}\nEmail: ${v('email')}\nPhone: ${v('phone')}\nArea: ${v('topic')}\n\n${v('msg')}`;
+    location.href = `mailto:info@mecapitaladvisors.com?subject=${encodeURIComponent('Website enquiry: ' + v('topic'))}&body=${encodeURIComponent(body)}`;
+  });
+
+  // Hero slideshow — Istanbul photos
+  const FP = f => 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(f) + '?width=1920';
+  const FILEPAGE = f => 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f.replace(/ /g,'_'));
+  const HERO_IMAGES = [
+    { file: 'Istanbul asv2020-02 img46 Galata Bridge and Tower.jpg', place: 'Galata Bridge & Tower' },
+    { file: 'Bosphorus Istanbul 2007.jpg',                            place: 'The Bosphorus' },
+    { file: 'Haliç, Metro Köprüsü ve Galata Kulesi 2015.jpg',         place: 'Golden Horn & Galata Tower' },
+    { file: 'Golden Horn, Istanbul (2564004091).jpg',                 place: 'The Golden Horn' }
+  ];
+  const slidesEl = document.getElementById('heroSlides'), dotsEl = document.getElementById('heroDots');
+  const placeEl = document.getElementById('heroPlace'), creditEl = document.getElementById('heroCredit');
+  const slides = HERO_IMAGES.map((img, i) => {
+    const d = document.createElement('div'); d.className = 'slide';
+    d.style.backgroundImage = `url("${img.src || FP(img.file)}")`; slidesEl.appendChild(d);
+    const b = document.createElement('button'); b.setAttribute('aria-label', img.place);
+    b.onclick = () => { show(i); restart(); }; dotsEl.appendChild(b);
+    return d;
+  });
+  let cur = 0, timer;
+  function show(i){
+    slides[cur].classList.remove('active'); dotsEl.children[cur].classList.remove('on');
+    cur = i; slides[cur].classList.add('active'); dotsEl.children[cur].classList.add('on');
+    placeEl.textContent = HERO_IMAGES[cur].place;
+    creditEl.textContent = 'Photo: Wikimedia Commons'; creditEl.href = FILEPAGE(HERO_IMAGES[cur].file);
+  }
+  const restart = () => { clearInterval(timer); timer = setInterval(() => show((cur + 1) % slides.length), 6500); };
+  show(0); restart();
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
